@@ -21,7 +21,7 @@ const SELECT_ALL_PRODUCT_QUERY = "SELECT * FROM  `products` LIMIT 0 , 30";
 		user: 'root',
 		password: '',
 		database: 'test',*/
-		host: 'mysql.hostinger.in',
+		hostname: 'mysql.hostinger.in',
 	user: 'u353447878_pro',
 	password: '29031991',
 	database: 'u353447878_pro',
