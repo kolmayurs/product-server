@@ -17,10 +17,14 @@ const SELECT_ALL_PRODUCT_QUERY = "SELECT * FROM  `products` LIMIT 0 , 30";
         connectionLimit : 100,
         waitForConnections : true,
         queueLimit :0,
-        host: 'localhost',
+        /*host: 'localhost',
 		user: 'root',
 		password: '',
-		database: 'test',
+		database: 'test',*/
+		host: 'mysql.hostinger.in',
+	user: 'u353447878_pro',
+	password: '29031991',
+	database: 'u353447878_pro',
         debug    :  true,
         wait_timeout : 28800,
         connect_timeout :10
