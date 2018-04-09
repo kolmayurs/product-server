@@ -106,6 +106,7 @@ app.get('/products', (req,res) =>{
 	});
 	//res.send('products');
 });
-app.listen(4000, () => {
-	console.log('Product server listing from port 4001');
+var port=Number(process.env.PORT || 4000);
+app.listen(port, () => {
+	console.log('Product server listing from port ' + port);
 })
