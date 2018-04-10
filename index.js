@@ -4,7 +4,7 @@ const mysql = require('mysql');
 
 const app = express();
 
-const SELECT_ALL_PRODUCT_QUERY = "SELECT * FROM  `products` LIMIT 0 , 30";
+const SELECT_ALL_PRODUCT_QUERY = "SELECT * FROM  `products`";
 
 /*const connection = mysql.createConnection({
 	host: 'mysql.hostinger.in',
@@ -83,6 +83,93 @@ app.get('/products/update', (req, res) =>{
 		}
 	});
 });
+
+app.get('/products/sort/price/high', (req, res) =>{
+	const SORT_PRODUCT_QUERY = 'SELECT * FROM  `products` ORDER BY price DESC';
+	pool.query(SORT_PRODUCT_QUERY, (err, results) =>{
+		if(err){
+			//console.log('Ye hai Error ');
+			return res.send(err);
+		}
+		else{
+			//console.log('Succesful');
+			return res.json({
+				data: results
+			})
+		}
+	});
+});
+
+app.get('/products/filter/price', (req, res) =>{
+	if (req.query.low == null || req.query.high == null){
+		SORT_PRODUCT_QUERY = 'SELECT * FROM  `products` ORDER BY price ASC';
+}
+	else{
+		SORT_PRODUCT_QUERY = 'SELECT * FROM  `products` WHERE price BETWEEN '+req.query.low+' AND '+req.query.high+'';
+	}
+	
+	pool.query(SORT_PRODUCT_QUERY, (err, results) =>{
+		if(err){
+			//console.log('Ye hai Error ');
+			return res.send(err);
+		}
+		else{
+			//console.log('Succesful');
+			return res.json({
+				data: results
+			})
+		}
+	});
+});
+
+app.get('/products/sort/name/desc', (req, res) =>{
+	const SORT_PRODUCT_QUERY = 'SELECT * FROM  `products` ORDER BY name DESC';
+	pool.query(SORT_PRODUCT_QUERY, (err, results) =>{
+		if(err){
+			//console.log('Ye hai Error ');
+			return res.send(err);
+		}
+		else{
+			//console.log('Succesful');
+			return res.json({
+				data: results
+			})
+		}
+	});
+});
+
+app.get('/products/sort/name/asc', (req, res) =>{
+	const SORT_PRODUCT_QUERY = 'SELECT * FROM  `products` ORDER BY name ASC';
+	pool.query(SORT_PRODUCT_QUERY, (err, results) =>{
+		if(err){
+			//console.log('Ye hai Error ');
+			return res.send(err);
+		}
+		else{
+			//console.log('Succesful');
+			return res.json({
+				data: results
+			})
+		}
+	});
+});
+
+app.get('/products/sort/price/low', (req, res) =>{
+	const SORT_PRODUCT_QUERY = 'SELECT * FROM  `products` ORDER BY price ASC';
+	pool.query(SORT_PRODUCT_QUERY, (err, results) =>{
+		if(err){
+			//console.log('Ye hai Error ');
+			return res.send(err);
+		}
+		else{
+			//console.log('Succesful');
+			return res.json({
+				data: results
+			})
+		}
+	});
+});
+
 
 app.get('/products/delete', (req, res) => {
 	const DELETE_PRODUCT_QUERY = 'DELETE FROM products WHERE product_id = '+req.query.product_id+'';
