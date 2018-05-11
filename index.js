@@ -5,8 +5,7 @@ const app = express();
 var MongoClient = require('mongodb').MongoClient;
 
 
-/*const url  ='mongodb+srv://kolimayurs:29031991@cluster0-onizc.mongodb.net';*/
-const url  ='mongodb://kolimayurs:29031991@cluster0-onizc.mongodb.net:27017,cluster0-shard-00-02-8zgqm.mongodb.net:27017/?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin'
+const url  ='mongodb+srv://kolimayurs:29031991@cluster0-onizc.mongodb.net';
 
 
 
